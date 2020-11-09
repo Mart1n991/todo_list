@@ -22,9 +22,8 @@ function App() {
           <option>Dokončené</option>
           <option>Nedokončené</option>
         </select>
-
-        <TodoList />
       </form>
+      <TodoList />
     </div>
   );
 }

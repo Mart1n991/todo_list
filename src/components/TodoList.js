@@ -1,9 +1,12 @@
 import React from "react";
+import Todo from "./Todo";
 
 export default function TodoList() {
   return (
     <div className="todo-list">
-      <ul>todo list</ul>
+      <ul>
+        <Todo />
+      </ul>
     </div>
   );
 }

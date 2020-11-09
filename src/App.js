@@ -4,6 +4,9 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 
+//Import components
+import TodoList from "./components/TodoList";
+
 function App() {
   return (
     <div className="app-container">
@@ -19,6 +22,8 @@ function App() {
           <option>Dokončené</option>
           <option>Nedokončené</option>
         </select>
+
+        <TodoList />
       </form>
     </div>
   );

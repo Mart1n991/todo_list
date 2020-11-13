@@ -14,11 +14,7 @@ function App() {
   const [filteredTodos, setFilteredTodos] = useState([]);
 
   useEffect(() => {
-    filterHandler();
-  }, [todos, option]);
-
-  //Option switch from all to completed or uncompleted
-  const filterHandler = () => {
+    //Option switch from all to completed or uncompleted
     switch (option) {
       case "completed":
         setFilteredTodos(todos.filter((todo) => todo.completed));
@@ -29,7 +25,7 @@ function App() {
       default:
         setFilteredTodos(todos);
     }
-  };
+  }, [todos, option]);
 
   return (
     <div className="app-container">

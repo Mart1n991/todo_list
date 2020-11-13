@@ -12,7 +12,7 @@ export default function Todo({ todoName, todo, todos, setTodos }) {
 
     setTimeout(function () {
       setTodos(todos.filter((element) => element.id !== todo.id));
-    }, 1000);
+    }, 800);
   };
 
   //Function to add completestatus to true

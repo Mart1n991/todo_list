@@ -4,12 +4,18 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 
-export default function Form({ inputText, setInputText, todos, setTodos }) {
+export default function Form({
+  inputText,
+  setInputText,
+  todos,
+  setTodos,
+  option,
+  setOption,
+}) {
   // Set inputText value
-  const onInputTextChange = (event) => {
-    setInputText(event.target.value);
-  };
+  const onInputTextChange = (event) => setInputText(event.target.value);
 
+  // On submit button
   const onSubmit = (event) => {
     event.preventDefault();
 
@@ -25,9 +31,11 @@ export default function Form({ inputText, setInputText, todos, setTodos }) {
         },
       ]);
     }
-
     setInputText("");
   };
+
+  //Selected value from options
+  const onSelect = (event) => setOption(event.target.value);
 
   return (
     <form>
@@ -41,10 +49,10 @@ export default function Form({ inputText, setInputText, todos, setTodos }) {
         <FontAwesomeIcon icon={faPlusCircle} />
       </button>
 
-      <select className="filtered-todos">
-        <option className="all-todos">Všetky</option>
-        <option className="completed-todos">Dokončené</option>
-        <option className="uncompleted-todos">Nedokončené</option>
+      <select className="filtered-todos" onChange={onSelect}>
+        <option value="all">Všetky</option>
+        <option value="completed">Dokončené</option>
+        <option value="uncompleted">Nedokončené</option>
       </select>
     </form>
   );

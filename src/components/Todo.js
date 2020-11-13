@@ -4,12 +4,42 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckSquare, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
-export default function Todo({ todoName }) {
+export default function Todo({ todoName, todo, todos, setTodos }) {
+  //Function to delete todo
+  const deleteTodo = () => {
+    setTodos(todos.filter((element) => element.id !== todo.id));
+  };
+
+  //Function to add completestatus to true
+  const addCompletedTodo = () => {
+    setTodos(
+      todos.map((item) => {
+        if (item.id === todo.id) {
+          return {
+            ...item,
+            completed: !item.completed,
+          };
+        }
+        return item;
+      })
+    );
+  };
+
   return (
     <div className="todo">
-      <p>{todoName}</p>
-      <FontAwesomeIcon icon={faCheckSquare} />
-      <FontAwesomeIcon icon={faTrashAlt} />
+      <p
+        className={`todo-name ${
+          todo.completed ? "todo-completed" : "uncompleted"
+        }`}
+      >
+        {todoName}
+      </p>
+      <button className="btn-complete" onClick={addCompletedTodo}>
+        <FontAwesomeIcon icon={faCheckSquare} />
+      </button>
+      <button className="btn-delete" onClick={deleteTodo}>
+        <FontAwesomeIcon icon={faTrashAlt} />
+      </button>
     </div>
   );
 }

@@ -13,19 +13,21 @@ export default function Form({ inputText, setInputText, todos, setTodos }) {
   const onSubmit = (event) => {
     event.preventDefault();
 
-    setTodos([
-      ...todos,
-      {
-        todos: inputText,
-        completed: false,
-        id: Math.random() * 1000,
-      },
-    ]);
+    if (inputText.length <= 0) {
+      window.alert("Úloha musí mať aspoň 1 znak");
+    } else {
+      setTodos([
+        ...todos,
+        {
+          todos: inputText,
+          completed: false,
+          id: Math.random() * 1000,
+        },
+      ]);
+    }
 
     setInputText("");
   };
-
-  console.log("todos ", todos);
 
   return (
     <form>

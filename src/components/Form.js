@@ -23,12 +23,12 @@ export default function Form({
       window.alert("Úloha musí mať aspoň 1 znak");
     } else {
       setTodos([
-        ...todos,
         {
           todos: inputText,
           completed: false,
           id: Math.random() * 1000,
         },
+        ...todos,
       ]);
     }
     setInputText("");
@@ -38,7 +38,7 @@ export default function Form({
   const onSelect = (event) => setOption(event.target.value);
 
   return (
-    <form>
+    <form className="input-form">
       <input
         placeholder="pridaj úlohu"
         type="text"

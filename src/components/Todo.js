@@ -29,17 +29,19 @@ export default function Todo({ todoName, todo, todos, setTodos }) {
     <div className="todo">
       <p
         className={`todo-name ${
-          todo.completed ? "todo-completed" : "uncompleted"
+          todo.completed ? "todo-completed" : "todo-uncompleted"
         }`}
       >
         {todoName}
       </p>
-      <button className="btn-complete" onClick={addCompletedTodo}>
-        <FontAwesomeIcon icon={faCheckSquare} />
-      </button>
-      <button className="btn-delete" onClick={deleteTodo}>
-        <FontAwesomeIcon icon={faTrashAlt} />
-      </button>
+      <div className="buttons">
+        <button className="btn-complete" onClick={addCompletedTodo}>
+          <FontAwesomeIcon icon={faCheckSquare} />
+        </button>
+        <button className="btn-delete" onClick={deleteTodo}>
+          <FontAwesomeIcon icon={faTrashAlt} />
+        </button>
+      </div>
     </div>
   );
 }

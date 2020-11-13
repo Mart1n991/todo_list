@@ -82,6 +82,10 @@ button {
   padding-left: 1em;
 }
 
+.todo-fall {
+  animation: fallAnimation 1s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
 .buttons {
   padding-left: 2em;
 }
@@ -137,5 +141,17 @@ button {
   100% {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+@keyframes fallAnimation {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(200px);
+    opacity: 0;
   }
 }
